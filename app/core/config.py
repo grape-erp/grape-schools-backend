@@ -4,14 +4,6 @@ from typing import Any, Dict, List, Optional, Union
 from pydantic import AnyHttpUrl, BaseSettings, EmailStr, HttpUrl, PostgresDsn, validator
 
 import os
-from dotenv import load_dotenv
-
-# Carrega as variáveis de ambiente do arquivo .env
-basedir = os.path.abspath(os.path.dirname(__file__))
-dotenv_path = os.path.join(basedir, '..', '.env')
-load_dotenv(dotenv_path)
-
-
 
 class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"

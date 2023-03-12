@@ -4,6 +4,15 @@ from starlette.middleware.cors import CORSMiddleware
 from app.api.api_v1.api import api_router
 from app.core.config import settings
 
+import os
+from dotenv import load_dotenv
+
+# Carrega as variáveis de ambiente do arquivo .env
+basedir = os.path.abspath(os.path.dirname(__file__))
+dotenv_path = os.path.join(basedir, '..', '.env')
+load_dotenv(dotenv_path)
+
+
 app = FastAPI(
     title=settings.PROJECT_NAME, openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
